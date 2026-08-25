@@ -3,56 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Priyank Solanki — MSc Data Science at Coventry University. Machine learning, deep learning, and end-to-end data pipelines.">
-<meta name="keywords" content="data scientist, machine learning, deep learning, Python, SQL, Coventry University, MSc Data Science, portfolio">
-<title>Priyank Solanki — Data Scientist</title>
+<meta name="description" content="Priyankkumar Solanki — Data Analyst & Data Scientist. Machine learning, deep learning, and end-to-end data pipelines.">
+<meta name="keywords" content="data scientist, data analyst, machine learning, deep learning, Python, SQL, Coventry University, MSc Data Science, portfolio">
+<title>Priyankkumar Solanki — Data Scientist</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..700;1,300..600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
-   TOKENSs
-   Colour blocks are faithful approximations of the Figma
-   marketing pastels (screenshot-derived, per DESIGN.md gaps).
+   TOKENS — theme: cobalt on warm paper, single accent.
    Retune the whole page from here.
    ============================================================ */
 :root {
-  /* Brand & accent */
-  --color-primary: #000000;
-  --color-on-primary: #FFFFFF;
-  --color-accent-magenta: #E5217F;
-
   /* Surface */
-  --color-canvas: #FFFFFF;
-  --color-inverse-canvas: #000000;
-  --color-surface-soft: #F5F4F2;
-  --color-hairline: #E2E1DE;
-  --color-hairline-soft: #EFEEEC;
+  --canvas: #EFEEE8;         /* warm paper */
+  --surface: #F7F6F1;        /* raised card */
+  --surface-2: #FBFAF6;      /* lightest */
+  --ink-canvas: #16171B;     /* dark section ground */
 
-  /* Colour blocks */
-  --color-block-lime: #D8F26B;
-  --color-block-lilac: #D4C7F5;
-  --color-block-cream: #F5EFE3;
-  --color-block-mint: #C6EFD6;
-  --color-block-pink: #F5CFE1;
-  --color-block-coral: #F5A98B;
-  --color-block-navy: #17224E;
+  /* Ink */
+  --ink: #16171B;
+  --ink-70: rgba(22,23,27,0.66);
+  --ink-45: rgba(22,23,27,0.45);
+  --on-dark: #F4F3EE;
+  --on-dark-60: rgba(244,243,238,0.62);
 
-  /* Text */
-  --color-ink: #000000;
-  --color-inverse-ink: #FFFFFF;
+  /* Accent — cobalt */
+  --accent: #1F45D6;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #E2E6FB;
+  --accent-deep: #16309A;
 
-  /* Semantic */
-  --color-success: #14AE5C;
+  /* Lines */
+  --hairline: rgba(22,23,27,0.14);
+  --hairline-soft: rgba(22,23,27,0.08);
+  --hairline-dark: rgba(244,243,238,0.16);
 
   /* Type */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
 
   /* Spacing — 8px base */
-  --space-hair: 1px;
   --space-xxs: 4px;
   --space-xs: 8px;
   --space-sm: 12px;
@@ -60,50 +53,44 @@
   --space-lg: 24px;
   --space-xl: 32px;
   --space-xxl: 48px;
-  --space-section: 96px;
+  --space-section: 104px;
 
   /* Radius */
-  --radius-xs: 2px;
   --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
   --radius-pill: 50px;
-  --radius-full: 9999px;
 
-  --container: 1280px;
-  --nav-height: 64px;
+  --container: 1200px;
+  --nav-height: 68px;
 }
 
-/* ============================================================
-   RESET
-   ============================================================ */
+/* ============================================================ RESET */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  scroll-padding-top: calc(var(--nav-height) + 36px);
+  scroll-padding-top: calc(var(--nav-height) + 40px);
 }
-
 body {
   font-family: var(--font-sans);
-  font-variation-settings: "wght" 320;
+  font-variation-settings: "wght" 330;
   font-feature-settings: "kern" 1;
-  background: var(--color-canvas);
-  color: var(--color-ink);
+  background: var(--canvas);
+  color: var(--ink);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
-
 img { max-width: 100%; display: block; }
 a { color: inherit; }
 ul { list-style: none; }
 
 :focus-visible {
-  outline: 2px solid var(--color-ink);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: var(--radius-xs);
+  border-radius: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -115,600 +102,408 @@ ul { list-style: none; }
   }
 }
 
-/* ============================================================
-   TYPE SCALE
-   Line-heights sit ~0.02 below the Figma spec to compensate
-   for Inter's taller x-height.
-   ============================================================ */
+/* ============================================================ TYPE */
 .t-display-xl {
-  font-size: 86px; font-variation-settings: "wght" 340;
-  line-height: 0.98; letter-spacing: -1.72px;
+  font-size: clamp(44px, 8.2vw, 92px);
+  font-variation-settings: "wght" 560;
+  line-height: 0.98; letter-spacing: -0.03em;
 }
 .t-display-lg {
-  font-size: 64px; font-variation-settings: "wght" 340;
-  line-height: 1.08; letter-spacing: -0.96px;
+  font-size: clamp(34px, 5.2vw, 58px);
+  font-variation-settings: "wght" 560;
+  line-height: 1.04; letter-spacing: -0.025em;
 }
 .t-headline {
-  font-size: 26px; font-variation-settings: "wght" 540;
-  line-height: 1.33; letter-spacing: -0.26px;
-}
-.t-subhead {
-  font-size: 26px; font-variation-settings: "wght" 340;
-  line-height: 1.33; letter-spacing: -0.26px;
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-variation-settings: "wght" 560;
+  line-height: 1.2; letter-spacing: -0.02em;
 }
 .t-card-title {
-  font-size: 24px; font-variation-settings: "wght" 700;
-  line-height: 1.43; letter-spacing: 0;
+  font-size: 22px; font-variation-settings: "wght" 580;
+  line-height: 1.25; letter-spacing: -0.015em;
+}
+.t-subhead {
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-variation-settings: "wght" 380;
+  line-height: 1.32; letter-spacing: -0.015em;
 }
 .t-body-lg {
-  font-size: 20px; font-variation-settings: "wght" 330;
-  line-height: 1.38; letter-spacing: -0.14px;
+  font-size: 19px; font-variation-settings: "wght" 350;
+  line-height: 1.5; letter-spacing: -0.006em;
 }
 .t-body {
-  font-size: 18px; font-variation-settings: "wght" 320;
-  line-height: 1.43; letter-spacing: -0.26px;
+  font-size: 17px; font-variation-settings: "wght" 350;
+  line-height: 1.6; letter-spacing: -0.004em;
 }
 .t-body-sm {
-  font-size: 16px; font-variation-settings: "wght" 330;
-  line-height: 1.43; letter-spacing: -0.14px;
-}
-.t-link {
-  font-size: 20px; font-variation-settings: "wght" 480;
-  line-height: 1.38; letter-spacing: -0.10px;
+  font-size: 15px; font-variation-settings: "wght" 360;
+  line-height: 1.55;
 }
 .t-eyebrow {
   font-family: var(--font-mono);
-  font-size: 18px; font-weight: 400;
-  line-height: 1.30; letter-spacing: 0.54px;
+  font-size: 13px; font-weight: 500;
+  line-height: 1.3; letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 .t-caption {
   font-family: var(--font-mono);
   font-size: 12px; font-weight: 400;
-  line-height: 1.00; letter-spacing: 0.60px;
+  line-height: 1.3; letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+.accent { color: var(--accent); }
+em.accent, .italic {
+  font-style: italic;
+  font-variation-settings: "wght" 500;
+}
 
-/* ============================================================
-   LAYOUT
-   ============================================================ */
+/* ============================================================ LAYOUT */
 .container {
   max-width: var(--container);
   margin: 0 auto;
   padding-inline: var(--space-xxl);
 }
-
 .section { padding-block: var(--space-section); }
 
-.section-head {
-  max-width: 760px;
-  margin-bottom: var(--space-xxl);
+/* Numbered section header */
+.sec-index {
+  display: flex; align-items: center; gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  color: var(--ink-45);
 }
-.section-head .eyebrow { display: block; margin-bottom: var(--space-md); }
+.sec-index .num { color: var(--accent); font-variation-settings: "wght" 600; }
+.sec-index .rule { display: none; }
+
+.section-head { max-width: 780px; margin-bottom: var(--space-xxl); }
 .section-head h2 { margin-bottom: var(--space-md); }
-.section-head p { max-width: 620px; }
+.section-head p { max-width: 640px; color: var(--ink-70); }
 
-/* Colour-block sections — the signature surface */
-.block {
-  border-radius: var(--radius-lg);
-  padding: var(--space-xxl);
-  margin-block: var(--space-section);
+/* A tiny lowercase word that floats over each section, editorial */
+.word-mark {
+  font-family: var(--font-mono);
+  font-size: 13px; letter-spacing: 0.14em; text-transform: lowercase;
+  color: var(--accent);
+  display: inline-flex; align-items: center; gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
 }
-.block--lime  { background: var(--color-block-lime); }
-.block--lilac { background: var(--color-block-lilac); }
-.block--cream { background: var(--color-block-cream); }
-.block--navy  { background: var(--color-block-navy); color: var(--color-inverse-ink); }
+.word-mark::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent);
+}
 
-.block .section { padding-block: 0; }
-
-/* ============================================================
-   BUTTONS — pill only
-   ============================================================ */
+/* ============================================================ BUTTONS */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-flex; align-items: center; justify-content: center;
   gap: var(--space-xs);
   font-family: var(--font-sans);
-  font-size: 20px;
-  font-variation-settings: "wght" 480;
-  line-height: 1.38;
-  letter-spacing: -0.10px;
-  text-decoration: none;
-  border: none;
+  font-size: 16px; font-variation-settings: "wght" 500;
+  letter-spacing: -0.01em;
+  text-decoration: none; border: none;
   border-radius: var(--radius-pill);
-  cursor: pointer;
-  min-height: 44px;
-  transition: transform 0.18s ease, background 0.18s ease;
+  cursor: pointer; min-height: 48px; padding: 12px 24px;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
 }
-.btn:active { transform: scale(0.97); }
-
-.btn-primary {
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  padding: 10px 20px;
+.btn:active { transform: scale(0.98); }
+.btn-primary { background: var(--ink); color: var(--on-dark); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(22,23,27,0.18); }
+.btn-accent { background: var(--accent); color: var(--accent-ink); }
+.btn-accent:hover { transform: translateY(-2px); background: var(--accent-deep); box-shadow: 0 10px 24px rgba(31,69,214,0.28); }
+.btn-ghost {
+  background: transparent; color: var(--ink);
+  box-shadow: inset 0 0 0 1.5px var(--hairline);
 }
-.btn-primary:hover { transform: translateY(-1px); }
+.btn-ghost:hover { box-shadow: inset 0 0 0 1.5px var(--ink); }
+.btn .arw { transition: transform 0.2s ease; }
+.btn:hover .arw { transform: translateX(3px); }
 
-.btn-secondary {
-  background: var(--color-canvas);
-  color: var(--color-ink);
-  padding: 8px 18px 10px;
-  box-shadow: inset 0 0 0 1px var(--color-hairline);
-}
-.btn-secondary:hover { background: var(--color-surface-soft); }
-
-/* On pastel grounds the white pill needs no ring */
-.block .btn-secondary { box-shadow: none; }
-.block .btn-secondary:hover { background: var(--color-surface-soft); }
-
-/* ============================================================
-   NAV
-   ============================================================ */
+/* ============================================================ NAV */
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: var(--color-canvas);
-  border-bottom: 1px solid var(--color-hairline-soft);
+  position: sticky; top: 0; z-index: 1000;
+  background: rgba(239,238,232,0.82);
+  backdrop-filter: saturate(1.4) blur(12px);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  border-bottom: 1px solid var(--hairline-soft);
 }
-
 .nav-container {
-  max-width: var(--container);
-  margin: 0 auto;
+  max-width: var(--container); margin: 0 auto;
   min-height: var(--nav-height);
   padding-inline: var(--space-xxl);
-  display: flex;
-  align-items: center;
-  gap: var(--space-xl);
+  display: flex; align-items: center; gap: var(--space-xl);
 }
-
 .logo {
-  font-size: 20px;
-  font-variation-settings: "wght" 700;
-  letter-spacing: -0.4px;
-  text-decoration: none;
-  color: var(--color-ink);
-  white-space: nowrap;
+  font-size: 18px; font-variation-settings: "wght" 640;
+  letter-spacing: -0.02em; text-decoration: none; color: var(--ink);
+  white-space: nowrap; display: inline-flex; align-items: center; gap: 8px;
 }
-
-.nav-menu {
-  display: flex;
-  gap: var(--space-lg);
-  margin-right: auto;
-}
-
+.logo .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+.nav-menu { display: flex; gap: var(--space-lg); margin-right: auto; }
 .nav-link {
-  font-size: 16px;
-  font-variation-settings: "wght" 330;
-  letter-spacing: -0.14px;
-  text-decoration: none;
-  color: var(--color-ink);
-  padding: var(--space-xs) 0;
+  font-size: 15px; font-variation-settings: "wght" 420;
+  letter-spacing: -0.01em; text-decoration: none; color: var(--ink-70);
+  padding: var(--space-xs) 0; position: relative;
 }
-.nav-link:hover,
-.nav-link.active { font-variation-settings: "wght" 600; }
-
+.nav-link:hover { color: var(--ink); }
+.nav-link.active { color: var(--ink); font-variation-settings: "wght" 600; }
 .nav-actions { display: flex; gap: var(--space-sm); align-items: center; }
-.nav-actions .btn { font-size: 16px; min-height: 40px; }
-
+.nav-actions .btn { min-height: 40px; padding: 8px 18px; font-size: 15px; }
 .hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  width: 44px; height: 44px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
+  display: none; flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px; width: 44px; height: 44px; cursor: pointer; background: none; border: none; padding: 0;
 }
-.hamburger span {
-  display: block;
-  width: 22px; height: 2px;
-  background: var(--color-ink);
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); transition: transform 0.2s ease, opacity 0.2s ease; }
 
-/* ============================================================
-   MARQUEE — thin black ribbon under the nav
-   ============================================================ */
-.marquee {
-  background: var(--color-inverse-canvas);
-  color: var(--color-inverse-ink);
-  height: 36px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  white-space: nowrap;
+/* ============================================================ HERO */
+.hero { padding-block: clamp(48px, 8vw, 88px) clamp(56px, 9vw, 96px); }
+.hero-grid {
+  display: grid; grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(32px, 6vw, 80px); align-items: center;
 }
-.marquee-track {
-  display: flex;
-  gap: var(--space-xl);
-  padding-left: var(--space-xl);
-  animation: marquee 38s linear infinite;
-}
-.marquee-track span {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.60px;
-  text-transform: uppercase;
-  flex-shrink: 0;
-}
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-/* ============================================================
-   HERO
-   ============================================================ */
-.hero { padding-block: var(--space-section); }
-
-.hero-content {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: var(--space-section);
-  align-items: center;
-}
-.hero-text .eyebrow { display: block; margin-bottom: var(--space-lg); }
+.hero-text .eyebrow { display: inline-block; margin-bottom: var(--space-lg); color: var(--accent); }
 .hero-text h1 { margin-bottom: var(--space-lg); }
-.hero-text .lede { max-width: 30ch; margin-bottom: var(--space-lg); }
-.hero-text .sub { max-width: 46ch; margin-bottom: var(--space-xl); }
-
+.hero-text .lede { max-width: 40ch; margin-bottom: var(--space-md); color: var(--ink-70); }
+.hero-text .lede strong { color: var(--ink); font-variation-settings: "wght" 480; }
+.hero-meta {
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em;
+  color: var(--ink-45); margin-bottom: var(--space-xl);
+}
 .cta-row { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
 
-.hero-portrait {
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  background: var(--color-surface-soft);
+/* Portrait with dashed orbit + floating pills */
+.hero-visual {
+  position: relative; display: grid; place-items: center;
+  aspect-ratio: 1 / 1; max-width: 460px; margin-inline: auto; width: 100%;
 }
-.hero-portrait img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
+.orbit {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 2px dashed rgba(31,69,214,0.4);
+  animation: spin 46s linear infinite;
 }
+.orbit::after {
+  content: ""; position: absolute; top: -6px; left: 50%;
+  width: 12px; height: 12px; border-radius: 50%; background: var(--accent);
+  transform: translateX(-50%);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.portrait {
+  width: 78%; aspect-ratio: 1 / 1; border-radius: 50%;
+  overflow: hidden; background: var(--surface);
+  box-shadow: 0 24px 60px rgba(22,23,27,0.16);
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+.pill {
+  position: absolute; display: inline-flex; align-items: center; gap: 8px;
+  background: var(--surface-2); color: var(--ink);
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em;
+  padding: 9px 15px; border-radius: var(--radius-pill);
+  box-shadow: 0 8px 24px rgba(22,23,27,0.14);
+  white-space: nowrap;
+}
+.pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.pill-a { top: 16%; right: -5%; }
+.pill-b { bottom: 16%; left: -5%; }
+@keyframes float-a { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+@keyframes float-b { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+.pill-a { animation: float-a 5.5s ease-in-out infinite; }
+.pill-b { animation: float-b 6.2s ease-in-out infinite; }
 
-/* ============================================================
-   ABOUT
-   ============================================================ */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: var(--space-section);
-  align-items: start;
-}
-.about-text > p { margin-bottom: var(--space-lg); }
-
+/* ============================================================ INTRO + STAT TILES */
+.intro-grid { display: grid; grid-template-columns: 1.35fr 0.65fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+.intro-text > p { margin-bottom: var(--space-lg); color: var(--ink-70); }
+.intro-text > p strong { color: var(--ink); font-variation-settings: "wght" 480; }
 .pull-quote {
-  border-left: 2px solid var(--color-ink);
-  padding-left: var(--space-lg);
-  margin-top: var(--space-xl);
+  border-left: 2px solid var(--accent); padding-left: var(--space-lg); margin-top: var(--space-xl);
 }
+.pull-quote p { color: var(--ink); }
 
-.card-stack { display: grid; gap: var(--space-md); }
+.stat-tiles { display: grid; gap: var(--space-md); }
+.stat-tile { border-top: 2px solid var(--ink); padding-top: var(--space-md); }
+.stat-num { font-size: clamp(38px, 5vw, 52px); font-variation-settings: "wght" 600; line-height: 1; letter-spacing: -0.03em; }
+.stat-label { display: block; margin-top: var(--space-xs); color: var(--ink-70); }
 
-.mini-card {
-  border: 1px solid var(--color-hairline);
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg);
-}
-.mini-card .caption { display: block; margin-bottom: var(--space-sm); }
-.mini-card h3 { margin-bottom: var(--space-xs); }
-
-/* ============================================================
-   EDUCATION — flat typed list, mono date column
-   ============================================================ */
-.edu-list { border-top: 1px solid var(--color-hairline); }
-
-.edu-row {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: var(--space-xl);
+/* ============================================================ JOURNEY / TIMELINE */
+.timeline { position: relative; margin-top: var(--space-lg); }
+.tl-row {
+  display: grid; grid-template-columns: 120px 1fr; gap: var(--space-xl);
   padding-block: var(--space-xl);
-  border-bottom: 1px solid var(--color-hairline);
+  border-top: 1px solid var(--hairline);
 }
-.edu-when { padding-top: 6px; }
-.edu-when span { display: block; }
-.edu-when .place { margin-top: var(--space-xs); opacity: 0.55; }
-.edu-what h3 { margin-bottom: var(--space-xxs); }
-.edu-what .degree { margin-bottom: var(--space-sm); }
-.edu-what .result { margin-bottom: var(--space-sm); }
-
-.tag {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.60px;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  border-radius: var(--radius-sm);
-  background: var(--color-primary);
-  color: var(--color-on-primary);
+.tl-row:last-child { border-bottom: 1px solid var(--hairline); }
+.tl-when { position: relative; padding-left: var(--space-lg); }
+.tl-when::before {
+  content: ""; position: absolute; left: 0; top: 4px;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--canvas); box-shadow: inset 0 0 0 2px var(--accent);
 }
-
-/* ============================================================
-   SKILLS — lilac block
-   ============================================================ */
-.skill-groups {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-xxl);
-}
-.skill-group h3 { margin-bottom: var(--space-md); }
+.tl-row.now .tl-when::before { background: var(--accent); }
+.tl-marker { font-family: var(--font-mono); font-size: 15px; letter-spacing: 0.02em; font-weight: 500; }
+.tl-what h3 { margin-bottom: 6px; }
+.tl-org { color: var(--ink-70); font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em; margin-bottom: var(--space-sm); }
+.tl-what p { color: var(--ink-70); margin-bottom: var(--space-md); max-width: 62ch; }
 .chip-row { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
 .chip {
-  font-size: 16px;
-  font-variation-settings: "wght" 450;
-  letter-spacing: -0.14px;
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  background: var(--color-canvas);
-  color: var(--color-ink);
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em;
+  padding: 5px 11px; border-radius: var(--radius-pill);
+  background: var(--surface); box-shadow: inset 0 0 0 1px var(--hairline-soft); color: var(--ink-70);
 }
 
-/* ============================================================
-   PROJECTS
-   ============================================================ */
-.projects-filter {
-  display: flex;
-  gap: var(--space-xs);
-  flex-wrap: wrap;
-  margin-bottom: var(--space-xl);
-}
+/* ============================================================ WORK / PROJECTS */
+.projects-filter { display: flex; gap: var(--space-xs); flex-wrap: wrap; margin-bottom: var(--space-xl); }
 .filter-btn {
-  font-family: var(--font-sans);
-  font-size: 16px;
-  font-variation-settings: "wght" 480;
-  letter-spacing: -0.10px;
-  padding: 8px 18px;
-  min-height: 44px;
-  border: none;
-  border-radius: var(--radius-pill);
-  background: var(--color-canvas);
-  color: var(--color-ink);
-  box-shadow: inset 0 0 0 1px var(--color-hairline);
-  cursor: pointer;
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.04em;
+  padding: 9px 16px; min-height: 40px; border: none; border-radius: var(--radius-pill);
+  background: var(--surface); color: var(--ink-70);
+  box-shadow: inset 0 0 0 1px var(--hairline-soft); cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+.filter-btn:hover { color: var(--ink); }
+.filter-btn.active { background: var(--ink); color: var(--on-dark); box-shadow: none; }
+
+.projects-list { display: grid; gap: var(--space-lg); }
+.project-card {
+  background: var(--surface); border-radius: var(--radius-lg);
+  padding: clamp(24px, 3vw, 40px);
+  display: grid; grid-template-columns: 64px 1fr; gap: clamp(16px, 3vw, 40px);
+  box-shadow: inset 0 0 0 1px var(--hairline-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.project-card:hover { transform: translateY(-3px); box-shadow: inset 0 0 0 1px var(--hairline), 0 16px 40px rgba(22,23,27,0.10); }
+.project-num { font-family: var(--font-mono); font-size: 15px; color: var(--accent); font-weight: 500; padding-top: 6px; }
+
+.project-body { display: grid; gap: var(--space-md); }
+.project-topline { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-md); flex-wrap: wrap; }
+.project-topline h3 { margin-bottom: 6px; }
+.project-kicker { color: var(--accent); }
+.project-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.02em;
+  text-decoration: none; color: var(--ink);
+  padding: 8px 14px; border-radius: var(--radius-pill);
+  box-shadow: inset 0 0 0 1px var(--hairline); white-space: nowrap;
   transition: background 0.18s ease, color 0.18s ease;
 }
-.filter-btn:hover { background: var(--color-surface-soft); }
-.filter-btn.active {
-  background: var(--color-primary);
-  color: var(--color-on-primary);
-  box-shadow: none;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: var(--space-lg);
-}
-
-.project-card {
-  border: 1px solid var(--color-hairline);
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-  transition: border-color 0.18s ease;
-}
-.project-card:hover { border-color: var(--color-ink); }
-.project-card .desc { flex: 1; }
-
+.project-link:hover { background: var(--ink); color: var(--on-dark); }
+.pblock { color: var(--ink-70); }
+.pblock strong { color: var(--ink); font-variation-settings: "wght" 560; }
 .tech-stack { display: flex; flex-wrap: wrap; gap: var(--space-xxs); }
 .tech-badge {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.60px;
-  text-transform: uppercase;
-  padding: 5px 10px;
-  border-radius: var(--radius-sm);
-  background: var(--color-surface-soft);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 5px 9px; border-radius: var(--radius-sm);
+  background: var(--accent-soft); color: var(--accent-deep);
 }
 
-.project-link {
-  align-self: flex-start;
-  font-size: 20px;
-  font-variation-settings: "wght" 480;
-  letter-spacing: -0.10px;
-  text-decoration: none;
-  border-bottom: 2px solid var(--color-ink);
-  padding-bottom: 2px;
+/* ============================================================ MARQUEE */
+.marquee {
+  background: var(--ink-canvas); color: var(--on-dark);
+  height: 52px; display: flex; align-items: center; overflow: hidden; white-space: nowrap;
 }
+.marquee-track { display: flex; gap: var(--space-xl); padding-left: var(--space-xl); animation: marquee 40s linear infinite; }
+.marquee-track span {
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  flex-shrink: 0; color: var(--on-dark-60);
+}
+.marquee-track span.hot { color: var(--on-dark); }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* ============================================================
-   EXPERIENCE — cream block
-   ============================================================ */
-.exp-list { display: grid; gap: var(--space-lg); }
+/* ============================================================ TOOLKIT / FLIP CARDS */
+.toolkit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+.flip { perspective: 1200px; min-height: 230px; }
+.flip-inner {
+  position: relative; width: 100%; height: 100%; min-height: 230px;
+  transition: transform 0.55s cubic-bezier(.2,.7,.2,1); transform-style: preserve-3d;
+}
+.flip:hover .flip-inner, .flip:focus-within .flip-inner, .flip.flipped .flip-inner { transform: rotateY(180deg); }
+.flip-face {
+  position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  border-radius: var(--radius-lg); padding: var(--space-lg);
+  display: flex; flex-direction: column;
+}
+.flip-front { background: var(--surface); box-shadow: inset 0 0 0 1px var(--hairline-soft); }
+.flip-back { background: var(--ink-canvas); color: var(--on-dark); transform: rotateY(180deg); }
+.flip-front h3 { margin-bottom: var(--space-md); }
+.flip-front .chip-row { margin-top: auto; }
+.flip-hint { margin-top: var(--space-md); font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--ink-45); text-transform: uppercase; }
+.flip-back .t-caption { color: var(--accent-soft); margin-bottom: var(--space-sm); }
+.flip-back p { color: var(--on-dark); font-size: 15px; line-height: 1.55; }
 
-.experience-card {
-  background: var(--color-canvas);
-  border-radius: var(--radius-lg);
-  padding: var(--space-lg);
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: var(--space-xl);
-}
-.experience-card h3 { margin-bottom: var(--space-sm); }
-.experience-card .company { margin-bottom: var(--space-sm); }
-.experience-card .caption { display: block; }
+/* ============================================================ WHY ME */
+.why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg) var(--space-xxl); }
+.why-item { border-top: 1px solid var(--hairline); padding-top: var(--space-md); }
+.why-num { font-family: var(--font-mono); font-size: 13px; color: var(--accent); font-weight: 500; }
+.why-item h3 { margin: var(--space-xs) 0 var(--space-sm); }
+.why-item p { color: var(--ink-70); max-width: 46ch; }
 
-/* ============================================================
-   ACHIEVEMENTS — white canvas, flat numerals
-   ============================================================ */
-.achievements-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
-}
-.achievement-card {
-  border-top: 2px solid var(--color-ink);
-  padding-top: var(--space-lg);
-}
-.achievement-number { margin: var(--space-xs) 0 var(--space-sm); }
-.achievement-card h3 { margin-bottom: var(--space-xs); }
-.platform-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xxs);
-  margin-top: var(--space-md);
-}
+/* ============================================================ CREDENTIALS (dark) */
+.creds { background: var(--ink-canvas); color: var(--on-dark); }
+.creds .sec-index { color: var(--on-dark-60); }
+.creds .sec-index .rule { background: var(--hairline-dark); }
+.creds .section-head h2 { color: var(--on-dark); }
+.creds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); }
+.creds-col h4 { color: var(--accent-soft); margin-bottom: var(--space-lg); }
+.cred-row { padding-block: var(--space-md); border-top: 1px solid var(--hairline-dark); }
+.cred-row:first-of-type { border-top: none; }
+.cred-row h5 { font-size: 18px; font-variation-settings: "wght" 520; margin-bottom: 4px; }
+.cred-row .meta { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--on-dark-60); }
 
-/* ============================================================
-   CONTACT — lime block
-   ============================================================ */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-section);
-  align-items: start;
-}
-.contact-grid h2 { margin-block: var(--space-md); }
-.contact-lede { max-width: 26ch; margin-bottom: var(--space-lg); }
-
-.contact-list { border-top: 1px solid rgba(0,0,0,0.16); }
+/* ============================================================ CONTACT */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+.contact-grid h2 { margin-block: var(--space-sm) var(--space-md); }
+.contact-lede { max-width: 30ch; margin-bottom: var(--space-lg); color: var(--ink-70); }
+.contact-list { border-top: 1px solid var(--hairline); }
 .contact-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--space-md);
-  padding-block: var(--space-md);
-  border-bottom: 1px solid rgba(0,0,0,0.16);
-  text-decoration: none;
+  display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-md);
+  padding-block: var(--space-md); border-bottom: 1px solid var(--hairline); text-decoration: none;
 }
-.contact-row .value {
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.18s ease;
-}
-.contact-row:hover .value { border-bottom-color: var(--color-ink); }
+.contact-row .value { border-bottom: 1px solid transparent; transition: border-color 0.18s ease; }
+.contact-row:hover .value { border-bottom-color: var(--accent); }
+.contact-row .k { color: var(--accent); }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
-.footer {
-  border-top: 1px solid var(--color-hairline-soft);
-  padding-block: var(--space-section) var(--space-xl);
-}
-.footer-top {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
-  gap: var(--space-xxl);
-  margin-bottom: var(--space-section);
-}
-.wordmark {
-  font-size: 48px;
-  font-variation-settings: "wght" 540;
-  letter-spacing: -0.96px;
-  line-height: 1.05;
-}
-.footer-col h4 { margin-bottom: var(--space-md); }
+/* ============================================================ FOOTER */
+.footer { border-top: 1px solid var(--hairline-soft); padding-block: var(--space-section) var(--space-xl); }
+.footer-top { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--space-xxl); margin-bottom: var(--space-section); }
+.wordmark { font-size: clamp(40px, 6vw, 56px); font-variation-settings: "wght" 600; letter-spacing: -0.03em; line-height: 1; }
+.wordmark .accent { color: var(--accent); }
+.footer-col h4 { margin-bottom: var(--space-md); color: var(--ink-45); }
 .footer-col li { margin-bottom: var(--space-xs); }
-.footer-col a {
-  font-size: 16px;
-  font-variation-settings: "wght" 330;
-  letter-spacing: -0.14px;
-  text-decoration: none;
-}
-.footer-col a:hover { text-decoration: underline; }
-.footer-bottom {
-  border-top: 1px solid var(--color-hairline-soft);
-  padding-top: var(--space-lg);
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-md);
-  flex-wrap: wrap;
-}
+.footer-col a { font-size: 15px; color: var(--ink-70); text-decoration: none; }
+.footer-col a:hover { color: var(--ink); }
+.footer-bottom { border-top: 1px solid var(--hairline-soft); padding-top: var(--space-lg); display: flex; justify-content: space-between; gap: var(--space-md); flex-wrap: wrap; color: var(--ink-45); }
 
-/* ============================================================
-   SCROLL REVEAL
-   ============================================================ */
-.reveal { opacity: 0; transform: translateY(16px); }
-.reveal.fade-in {
-  opacity: 1;
-  transform: none;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
+/* ============================================================ REVEAL */
+.reveal { opacity: 0; transform: translateY(18px); }
+.reveal.in { opacity: 1; transform: none; transition: opacity 0.6s ease, transform 0.6s ease; }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width: 1400px) {
-  .t-display-xl { font-size: 76px; letter-spacing: -1.52px; }
+/* ============================================================ RESPONSIVE */
+@media (max-width: 1000px) {
+  .toolkit-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-@media (max-width: 1280px) {
-  .container, .nav-container { padding-inline: var(--space-xl); }
-  .hero-content, .about-grid, .contact-grid { gap: var(--space-xxl); }
-}
-
-@media (max-width: 960px) {
+@media (max-width: 900px) {
   .nav-menu { display: none; }
-  .nav-menu.active {
-    display: flex;
-    position: absolute;
-    top: var(--nav-height);
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    gap: 0;
-    background: var(--color-canvas);
-    border-bottom: 1px solid var(--color-hairline);
-    padding: var(--space-md) var(--space-xl) var(--space-lg);
+  .nav-menu.open {
+    display: flex; position: absolute; top: var(--nav-height); left: 0; right: 0;
+    flex-direction: column; gap: 0; background: var(--canvas);
+    border-bottom: 1px solid var(--hairline); padding: var(--space-md) var(--space-xl) var(--space-lg);
   }
-  .nav-menu.active .nav-link { padding-block: var(--space-sm); font-size: 20px; }
+  .nav-menu.open .nav-link { padding-block: var(--space-sm); font-size: 18px; }
   .hamburger { display: flex; }
   .nav-actions { margin-left: auto; }
-
-  .t-display-xl { font-size: 60px; letter-spacing: -1.2px; }
-  .t-display-lg { font-size: 44px; letter-spacing: -0.66px; }
-
-  .hero-content,
-  .about-grid,
-  .contact-grid { grid-template-columns: 1fr; }
-  .hero-portrait { max-width: 420px; }
-  .skill-groups { grid-template-columns: 1fr; gap: var(--space-xl); }
-  .achievements-grid { grid-template-columns: 1fr; gap: var(--space-xl); }
-  .experience-card { grid-template-columns: 1fr; gap: var(--space-md); }
+  .hero-grid, .intro-grid, .creds-grid, .contact-grid, .why-grid { grid-template-columns: 1fr; }
+  .hero-visual { grid-row: 1; max-width: 360px; }
+  .why-grid { gap: var(--space-lg); }
   .footer-top { grid-template-columns: 1fr 1fr; }
-  .wordmark { grid-column: 1 / -1; font-size: 40px; }
+  .wordmark { grid-column: 1 / -1; }
 }
-
-@media (max-width: 768px) {
-  .section { padding-block: 64px; }
-  .block {
-    border-radius: 0;
-    margin-inline: calc(var(--space-xl) * -1);
-    margin-block: 64px;
-    padding: 64px var(--space-xl);
-  }
-  .edu-row { grid-template-columns: 1fr; gap: var(--space-md); }
-  .projects-grid { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 560px) {
+@media (max-width: 680px) {
   .container, .nav-container { padding-inline: var(--space-lg); }
-  .block {
-    margin-inline: calc(var(--space-lg) * -1);
-    padding: 56px var(--space-lg);
-  }
-  .t-display-xl { font-size: 44px; letter-spacing: -0.88px; }
-  .t-display-lg { font-size: 34px; letter-spacing: -0.5px; }
-  .t-subhead, .t-headline { font-size: 22px; }
-  .t-body-lg { font-size: 18px; }
-  .t-eyebrow { font-size: 14px; }
-  .wordmark { font-size: 34px; }
-
-  .logo { font-size: 17px; }
+  .section { padding-block: 72px; }
+  .toolkit-grid { grid-template-columns: 1fr; }
+  .project-card { grid-template-columns: 1fr; gap: var(--space-md); }
+  .project-num { padding-top: 0; }
+  .tl-row { grid-template-columns: 1fr; gap: var(--space-md); }
   .cta-row { flex-direction: column; align-items: stretch; }
   .cta-row .btn { width: 100%; }
-  .nav-actions .btn-secondary { display: none; }
-  .contact-row { flex-direction: column; align-items: flex-start; gap: var(--space-xxs); }
-}
-
-@media (max-width: 559px) {
+  .nav-actions .btn-ghost { display: none; }
   .footer-top { grid-template-columns: 1fr; gap: var(--space-xl); }
+  .contact-row { flex-direction: column; align-items: flex-start; gap: 4px; }
 }
 </style>
 </head>
@@ -718,18 +513,17 @@ ul { list-style: none; }
 <!-- ============================ NAV ============================ -->
 <nav class="navbar">
   <div class="nav-container">
-    <a href="#home" class="logo">Priyank Solanki</a>
+    <a href="#home" class="logo"><span class="dot"></span>Priyankkumar Solanki</a>
     <ul class="nav-menu">
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#education" class="nav-link">Education</a></li>
-      <li><a href="#skills" class="nav-link">Skills</a></li>
-      <li><a href="#projects" class="nav-link">Projects</a></li>
-      <li><a href="#experience" class="nav-link">Experience</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <li><a href="#intro" class="nav-link">About</a></li>
+      <li><a href="#journey" class="nav-link">Journey</a></li>
+      <li><a href="#work" class="nav-link">Work</a></li>
+      <li><a href="#toolkit" class="nav-link">Toolkit</a></li>
+      <li><a href="#why" class="nav-link">Why me</a></li>
     </ul>
     <div class="nav-actions">
-      <a href="Priyank%20resume.pdf" target="_blank" rel="noopener" class="btn btn-secondary">Résumé</a>
-      <a href="#contact" class="btn btn-primary">Get in touch</a>
+      <a href="#contact" class="btn btn-ghost">Contact</a>
+      <a href="Priyank%20resume.pdf" target="_blank" rel="noopener" class="btn btn-primary">↓ Resume</a>
     </div>
     <button class="hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -737,132 +531,117 @@ ul { list-style: none; }
   </div>
 </nav>
 
-<!-- ========================== MARQUEE ========================== -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Python</span><span>SQL</span><span>Scikit-learn</span><span>TensorFlow</span><span>Keras</span>
-    <span>Pandas</span><span>NumPy</span><span>OpenCV</span><span>NLP</span><span>Flask</span>
-    <span>MySQL</span><span>Git</span>
-    <span>Python</span><span>SQL</span><span>Scikit-learn</span><span>TensorFlow</span><span>Keras</span>
-    <span>Pandas</span><span>NumPy</span><span>OpenCV</span><span>NLP</span><span>Flask</span>
-    <span>MySQL</span><span>Git</span>
-  </div>
-</div>
-
 <!-- =========================== HERO ============================ -->
-<section id="home" class="hero">
+<header id="home" class="hero">
   <div class="container">
-    <div class="hero-content">
+    <div class="hero-grid">
       <div class="hero-text">
-        <span class="eyebrow t-eyebrow">Data Scientist — Coventry, UK</span>
-        <h1 class="t-display-xl">Priyank Solanki</h1>
-        <p class="lede t-subhead">I build machine learning systems end to end from raw data to a model people can actually use.</p>
-        <p class="sub t-body">Currently reading for an MSc in Data Science at Coventry University. Previously a data science intern at Pepcoding and a frontend engineer at Shaligram Infotech.</p>
+        <span class="eyebrow t-eyebrow">Data · Machine Learning · AI</span>
+        <h1 class="t-display-xl">A data scientist who <em class="accent">builds</em>, end to end.</h1>
+        <p class="lede t-body-lg">I take a problem from <strong>raw data</strong> all the way to a model people can actually use cleaning, modelling, and the engineering in between.</p>
+        <p class="lede t-body">A frontend internship taught me what happens once a model has to face a real user. That perspective shapes everything I build now.</p>
+        <p class="hero-meta">Coventry, UK · MSc Data Science, Coventry University · Ex SDE</p>
         <div class="cta-row">
-          <a href="#projects" class="btn btn-primary">See the work</a>
-          <a href="#contact" class="btn btn-secondary">Get in touch</a>
+          <a href="#work" class="btn btn-accent">See the work <span class="arw">→</span></a>
+          <a href="Priyank%20resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Download CV</a>
         </div>
       </div>
-      <div class="hero-portrait">
-        <img src="PS.png" alt="Portrait of Priyank Solanki" width="400" height="500">
+      <div class="hero-visual">
+        <div class="orbit" aria-hidden="true"></div>
+        <div class="portrait">
+          <img src="PS.png" alt="Portrait of Priyankkumar Solanki" width="440" height="440">
+        </div>
+        <span class="pill pill-a">300+ problems solved</span>
+        <span class="pill pill-b">4th · ML hackathon</span>
       </div>
     </div>
   </div>
-</section>
+</header>
 
-<!-- =========================== ABOUT =========================== -->
-<section id="about" class="section">
+<!-- ====================== 01 — INTRODUCTION ===================== -->
+<section id="intro" class="section">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow t-eyebrow">About</span>
-      <h2 class="t-display-lg">Curious about how machines learn from data.</h2>
-    </div>
-    <div class="about-grid">
-      <div class="about-text">
-        <p class="t-body">I came to data science from computer engineering. The question that pulled me in was a simple one — how does a model go from a table of numbers to a decision that holds up in the real world? Most of what I've built since has been an attempt to answer it properly.</p>
-        <p class="t-body">My work spans machine learning, deep learning, and the unglamorous plumbing underneath: cleaning, feature engineering, and pipelines that don't fall over. I've trained a GAN to generate anime artwork, built predictive models on messy datasets, and written automation that scrapes and structures data other people would rather not touch.</p>
-        <p class="t-body">Alongside that, I've solved more than 300 algorithm problems and placed fourth in a machine learning hackathon. The frontend internship gave me something less common among data people — a working sense of what happens once a model has to face a user.</p>
+    <div class="sec-index t-caption"><span class="num">01</span> <span>Introduction</span> <span class="rule"></span></div>
+    <div class="intro-grid">
+      <div class="intro-text">
+        <p class="t-body-lg">I came to data science from <strong>computer engineering</strong>. The question that pulled me in was a simple one, how does a model go from a table of numbers to a decision that holds up in the real world? Most of what I've built since has been an attempt to answer it properly.</p>
+        <p class="t-body">My work spans machine learning, deep learning, and the unglamorous plumbing underneath: cleaning, feature engineering, and pipelines that don't fall over. I've trained a <strong>GAN to generate anime artwork</strong>, built predictive models on messy datasets, and written automation that scrapes and structures data other people would rather not touch.</p>
+        <p class="t-body">Today I'm completing an MSc in Data Science at Coventry University while building production-minded ML projects. Alongside that I've solved <strong>300+ algorithm problems</strong> and placed fourth in a machine learning hackathon.</p>
         <div class="pull-quote">
           <p class="t-subhead">The gap between a good model and a useful one is engineering. That gap is where I like to work.</p>
         </div>
       </div>
-      <div class="card-stack">
-        <div class="mini-card">
-          <span class="caption t-caption">01 — Modelling</span>
-          <h3 class="t-card-title">ML &amp; deep learning</h3>
-          <p class="t-body-sm">Neural networks, GANs, and predictive models with TensorFlow, Keras, and Scikit-learn.</p>
+      <div class="stat-tiles">
+        <div class="stat-tile">
+          <div class="stat-num" data-count="300" data-suffix="+">0</div>
+          <span class="stat-label t-body-sm">DSA problems solved</span>
         </div>
-        <div class="mini-card">
-          <span class="caption t-caption">02 — Engineering</span>
-          <h3 class="t-card-title">Pipelines &amp; automation</h3>
-          <p class="t-body-sm">Cleaning, feature engineering, and scraping workflows in Python, Pandas, and Selenium.</p>
+        <div class="stat-tile">
+          <div class="stat-num" data-count="5" data-suffix="">0</div>
+          <span class="stat-label t-body-sm">End-to-end ML/DL projects</span>
         </div>
-        <div class="mini-card">
-          <span class="caption t-caption">03 — Fundamentals</span>
-          <h3 class="t-card-title">Algorithms</h3>
-          <p class="t-body-sm">300+ data structures and algorithms problems across LeetCode, Nados, and GeeksforGeeks.</p>
+        <div class="stat-tile">
+          <div class="stat-num" data-count="4" data-suffix="th">0</div>
+          <span class="stat-label t-body-sm">Place · ML hackathon</span>
+        </div>
+        <div class="stat-tile">
+          <div class="stat-num" data-count="2" data-suffix="">0</div>
+          <span class="stat-label t-body-sm">Industry internships</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ========================= EDUCATION ========================= -->
-<section id="education" class="section">
+<!-- ======================= 02 — THE JOURNEY ==================== -->
+<section id="journey" class="section">
   <div class="container">
+    <div class="sec-index t-caption"><span class="num">02</span> <span>The Journey</span> <span class="rule"></span></div>
     <div class="section-head">
-      <span class="eyebrow t-eyebrow">Education</span>
-      <h2 class="t-display-lg">Where the training happened.</h2>
+      <span class="word-mark">path</span>
+      <h2 class="t-display-lg">From engineering foundations<br>to making data useful.</h2>
     </div>
-    <div class="edu-list">
+    <div class="timeline">
 
-      <div class="edu-row">
-        <div class="edu-when">
-          <span class="t-caption">Jan 2026 — Jan 2027</span>
-          <span class="place t-caption">Coventry, United Kingdom</span>
+      <div class="tl-row now">
+        <div class="tl-when">
+          <span class="tl-marker accent">Now</span>
         </div>
-        <div class="edu-what">
-          <h3 class="t-headline">Coventry University</h3>
-          <div class="degree t-body">MSc Data Science</div>
-          <div class="result"><span class="tag">In progress</span></div>
-          <p class="t-body-sm">Advanced machine learning, statistical modelling, big data systems, and applied research — building on a computer engineering foundation with a focus on deployable work.</p>
+        <div class="tl-what">
+          <h3 class="t-headline">Data Analyst</h3>
+          <div class="tl-org">Analytics Leap · Coventry · Mar 2026 – Present</div>
+          <p class="t-body">Building analytics across Python, SQL, Power BI and Tableau on real client data, turning raw numbers into decisions non-technical stakeholders can act on.</p>
+          <div class="chip-row">
+            <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Power BI</span><span class="chip">Tableau</span>
+          </div>
         </div>
       </div>
 
-      <div class="edu-row">
-        <div class="edu-when">
-          <span class="t-caption">2019 — 2023</span>
-          <span class="place t-caption">Gujarat, India</span>
+      <div class="tl-row">
+        <div class="tl-when">
+          <span class="tl-marker">2023</span>
         </div>
-        <div class="edu-what">
-          <h3 class="t-headline">Gujarat Technological University, Ahmedabad</h3>
-          <div class="degree t-body">Bachelor of Engineering, Computer Engineering </div>
-          <div class="result t-body-sm">CGPA 7.57</div>
-          <p class="t-body-sm">Algorithms, data structures, machine learning, and software development, with several AI and ML projects across the final years.</p>
-        </div>
-      </div>
-
-      <div class="edu-row">
-        <div class="edu-when">
-          <span class="t-caption">Higher Secondary</span>
-          <span class="place t-caption">Surat, Gujarat, India</span>
-        </div>
-        <div class="edu-what">
-          <h3 class="t-headline">12th Grade — Science</h3>
-          <div class="result t-body-sm">73%</div>
-          <p class="t-body-sm">Science stream, with mathematics and physics as the core of the foundation.</p>
+        <div class="tl-what">
+          <h3 class="t-headline">Data Science Intern</h3>
+          <div class="tl-org">Pepcoding Pvt Ltd · Certificate issued</div>
+          <p class="t-body">Worked across data structures, algorithms, machine learning, and deep learning. Built predictive models on real datasets and implemented ML algorithms from the ground up rather than calling them off the shelf.</p>
+          <div class="chip-row">
+            <span class="chip">Python</span><span class="chip">Scikit-learn</span><span class="chip">Deep learning</span><span class="chip">DSA</span>
+          </div>
         </div>
       </div>
 
-      <div class="edu-row">
-        <div class="edu-when">
-          <span class="t-caption">Secondary</span>
-          <span class="place t-caption">Surat, Gujarat, India</span>
+      <div class="tl-row">
+        <div class="tl-when">
+          <span class="tl-marker">2022</span>
         </div>
-        <div class="edu-what">
-          <h3 class="t-headline">10th Grade</h3>
-          <div class="result t-body-sm">70%</div>
-          <p class="t-body-sm">Strong performance across science and mathematics.</p>
+        <div class="tl-what">
+          <h3 class="t-headline">Software Engineering Intern</h3>
+          <div class="tl-org">Shaligram Infotech · Ahmedabad, India · Certificate issued</div>
+          <p class="t-body">Frontend development on responsive, client-facing applications using HTML, CSS, Bootstrap, JavaScript, and jQuery. The internship that taught me what happens to a model once it meets an interface.</p>
+          <div class="chip-row">
+            <span class="chip">JavaScript</span><span class="chip">Bootstrap</span><span class="chip">jQuery</span><span class="chip">UI</span>
+          </div>
         </div>
       </div>
 
@@ -870,229 +649,237 @@ ul { list-style: none; }
   </div>
 </section>
 
-<!-- ==================== SKILLS — LILAC BLOCK ==================== -->
-<div class="container">
-  <div class="block block--lilac">
-    <section id="skills" class="section">
-      <div class="section-head">
-        <span class="eyebrow t-eyebrow">Skills</span>
-        <h2 class="t-display-lg">The toolkit.</h2>
-      </div>
-      <div class="skill-groups">
-
-        <div class="skill-group">
-          <h3 class="t-headline">Languages</h3>
-          <div class="chip-row">
-            <span class="chip">Python</span>
-            <span class="chip">SQL</span>
-            <span class="chip">Java</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">HTML &amp; CSS</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3 class="t-headline">Frameworks &amp; libraries</h3>
-          <div class="chip-row">
-            <span class="chip">TensorFlow</span>
-            <span class="chip">Keras</span>
-            <span class="chip">Scikit-learn</span>
-            <span class="chip">Pandas</span>
-            <span class="chip">NumPy</span>
-            <span class="chip">Matplotlib</span>
-            <span class="chip">Flask</span>
-            <span class="chip">Bootstrap</span>
-            <span class="chip">MySQL</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3 class="t-headline">Specialisations</h3>
-          <div class="chip-row">
-            <span class="chip">Machine learning</span>
-            <span class="chip">Deep learning</span>
-            <span class="chip">Natural language processing</span>
-            <span class="chip">Computer vision</span>
-            <span class="chip">GANs</span>
-            <span class="chip">Web scraping</span>
-            <span class="chip">Feature engineering</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <h3 class="t-headline">How I work</h3>
-          <div class="chip-row">
-            <span class="chip">Problem solving</span>
-            <span class="chip">Written communication</span>
-            <span class="chip">Collaboration</span>
-            <span class="chip">Version control</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  </div>
-</div>
-
-<!-- ========================= PROJECTS ========================== -->
-<section id="projects" class="section">
+<!-- ====================== 03 — SELECTED WORK =================== -->
+<section id="work" class="section">
   <div class="container">
+    <div class="sec-index t-caption"><span class="num">03</span> <span>Selected Work</span> <span class="rule"></span></div>
     <div class="section-head">
-      <span class="eyebrow t-eyebrow">Projects</span>
-      <h2 class="t-display-lg">Selected work.</h2>
+      <span class="word-mark">work</span>
+      <h2 class="t-display-lg">The Projects, built<br>end to end.</h2>
       <p class="t-body">Each of these started as a question I couldn't answer without building something.</p>
     </div>
 
     <div class="projects-filter">
       <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="ML">Machine learning</button>
       <button class="filter-btn" data-filter="DL">Deep learning</button>
+      <button class="filter-btn" data-filter="ML">Machine learning</button>
       <button class="filter-btn" data-filter="Automation">Automation</button>
       <button class="filter-btn" data-filter="Data">Data engineering</button>
     </div>
 
-    <div class="projects-grid">
+    <div class="projects-list">
 
       <article class="project-card" data-category="DL">
-        <span class="t-caption">Deep learning</span>
-        <h3 class="t-card-title">GAN for anime generation</h3>
-        <p class="desc t-body-sm">A generative adversarial network trained to produce anime characters and artwork. Custom architecture in TensorFlow and Keras, tuned for image quality over training speed.</p>
-        <div class="tech-stack">
-          <span class="tech-badge">Python</span>
-          <span class="tech-badge">TensorFlow</span>
-          <span class="tech-badge">Keras</span>
-          <span class="tech-badge">GANs</span>
+        <div class="project-num">01</div>
+        <div class="project-body">
+          <div class="project-topline">
+            <div>
+              <span class="project-kicker t-caption">Deep learning · Generative</span>
+              <h3 class="t-card-title">GAN for anime generation</h3>
+            </div>
+            <a href="https://github.com/Priyank0302/GAN_Project/blob/main/AnimeGan.ipynb" target="_blank" rel="noopener" class="project-link">Code ↗</a>
+          </div>
+          <p class="pblock t-body-sm"><strong>Problem.</strong> Generating believable anime artwork means a model has to learn structure and style at once — and GANs are notorious for collapsing before they get there.</p>
+          <p class="pblock t-body-sm"><strong>Approach.</strong> A generative adversarial network with a custom architecture in TensorFlow and Keras, tuned for image quality over training speed and stabilised against mode collapse.</p>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span><span class="tech-badge">TensorFlow</span><span class="tech-badge">Keras</span><span class="tech-badge">GANs</span>
+          </div>
         </div>
-        <a href="https://github.com/Priyank0302/GAN_Project/blob/main/AnimeGan.ipynb" target="_blank" rel="noopener" class="project-link">View code</a>
       </article>
 
       <article class="project-card" data-category="ML">
-        <span class="t-caption">Machine learning</span>
-        <h3 class="t-card-title">Predictive modelling on messy data</h3>
-        <p class="desc t-body-sm">An end-to-end model for pulling actionable signal out of complex datasets. Multiple algorithms compared, with feature engineering doing most of the heavy lifting.</p>
-        <div class="tech-stack">
-          <span class="tech-badge">Python</span>
-          <span class="tech-badge">Scikit-learn</span>
-          <span class="tech-badge">Pandas</span>
-          <span class="tech-badge">Matplotlib</span>
+        <div class="project-num">02</div>
+        <div class="project-body">
+          <div class="project-topline">
+            <div>
+              <span class="project-kicker t-caption">Machine learning · Tabular</span>
+              <h3 class="t-card-title">Predictive modelling on messy data</h3>
+            </div>
+            <a href="https://github.com/Priyank0302/ML_Project" target="_blank" rel="noopener" class="project-link">Code ↗</a>
+          </div>
+          <p class="pblock t-body-sm"><strong>Problem.</strong> Real datasets rarely arrive clean. Pulling reliable signal out of them takes more than dropping a model on top of the raw table.</p>
+          <p class="pblock t-body-sm"><strong>Approach.</strong> An end-to-end pipeline comparing multiple algorithms, with feature engineering doing most of the heavy lifting and honest evaluation deciding what actually shipped.</p>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span><span class="tech-badge">Scikit-learn</span><span class="tech-badge">Pandas</span><span class="tech-badge">Matplotlib</span>
+          </div>
         </div>
-        <a href="https://github.com/Priyank0302/ML_Project" target="_blank" rel="noopener" class="project-link">View code</a>
+      </article>
+
+      <article class="project-card" data-category="ML">
+        <div class="project-num">03</div>
+        <div class="project-body">
+          <div class="project-topline">
+            <div>
+              <span class="project-kicker t-caption">Natural language processing</span>
+              <h3 class="t-card-title">Sentiment &amp; text classification</h3>
+            </div>
+            <a href="https://github.com/Priyank0302" target="_blank" rel="noopener" class="project-link">Code ↗</a>
+          </div>
+          <p class="pblock t-body-sm"><strong>Problem.</strong> Turning free-form text into a reliable label means handling messy language before any classifier can help.</p>
+          <p class="pblock t-body-sm"><strong>Approach.</strong> A text-analysis pipeline covering tokenisation, vectorisation, and classification — built to compare classical NLP techniques against a neural baseline.</p>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span><span class="tech-badge">NLTK</span><span class="tech-badge">Scikit-learn</span>
+          </div>
+        </div>
       </article>
 
       <article class="project-card" data-category="Automation">
-        <span class="t-caption">Automation</span>
-        <h3 class="t-card-title">Selenium login automation</h3>
-        <p class="desc t-body-sm">An automated authentication flow built with Selenium and BeautifulSoup, handling dynamic elements and multi-step logins without breaking on layout changes.</p>
-        <div class="tech-stack">
-          <span class="tech-badge">Python</span>
-          <span class="tech-badge">Selenium</span>
-          <span class="tech-badge">BeautifulSoup</span>
+        <div class="project-num">04</div>
+        <div class="project-body">
+          <div class="project-topline">
+            <div>
+              <span class="project-kicker t-caption">Automation · Scraping</span>
+              <h3 class="t-card-title">Selenium login automation</h3>
+            </div>
+            <a href="https://github.com/Priyank0302" target="_blank" rel="noopener" class="project-link">Code ↗</a>
+          </div>
+          <p class="pblock t-body-sm"><strong>Problem.</strong> Automating a real login flow means surviving dynamic elements and multi-step auth without breaking the moment the page layout shifts.</p>
+          <p class="pblock t-body-sm"><strong>Approach.</strong> An automated authentication flow built with Selenium and BeautifulSoup, resilient to dynamic content and structured to keep working as pages change.</p>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span><span class="tech-badge">Selenium</span><span class="tech-badge">BeautifulSoup</span>
+          </div>
         </div>
-        <a href="https://github.com/Priyank0302" target="_blank" rel="noopener" class="project-link">View code</a>
       </article>
 
       <article class="project-card" data-category="Data">
-        <span class="t-caption">Data engineering</span>
-        <h3 class="t-card-title">Cleaning and feature pipeline</h3>
-        <p class="desc t-body-sm">A reusable preprocessing pipeline covering missing values, outlier handling, and feature construction — the layer that decides whether a model is worth training at all.</p>
-        <div class="tech-stack">
-          <span class="tech-badge">Python</span>
-          <span class="tech-badge">Pandas</span>
-          <span class="tech-badge">NumPy</span>
+        <div class="project-num">05</div>
+        <div class="project-body">
+          <div class="project-topline">
+            <div>
+              <span class="project-kicker t-caption">Data engineering</span>
+              <h3 class="t-card-title">Cleaning &amp; feature pipeline</h3>
+            </div>
+            <a href="https://github.com/Priyank0302" target="_blank" rel="noopener" class="project-link">Code ↗</a>
+          </div>
+          <p class="pblock t-body-sm"><strong>Problem.</strong> The preprocessing layer quietly decides whether a model is worth training at all — and it's usually the part nobody wants to own.</p>
+          <p class="pblock t-body-sm"><strong>Approach.</strong> A reusable pipeline covering missing values, outlier handling, and feature construction, written so the same steps run the same way every time.</p>
+          <div class="tech-stack">
+            <span class="tech-badge">Python</span><span class="tech-badge">Pandas</span><span class="tech-badge">NumPy</span>
+          </div>
         </div>
-        <a href="https://github.com/Priyank0302" target="_blank" rel="noopener" class="project-link">View code</a>
-      </article>
-
-      <article class="project-card" data-category="ML">
-        <span class="t-caption">Natural language processing</span>
-        <h3 class="t-card-title">Sentiment and text classification</h3>
-        <p class="desc t-body-sm">A text analysis project covering tokenisation, vectorisation, and classification, built to compare classical NLP techniques against a neural baseline.</p>
-        <div class="tech-stack">
-          <span class="tech-badge">Python</span>
-          <span class="tech-badge">NLTK</span>
-          <span class="tech-badge">Scikit-learn</span>
-        </div>
-        <a href="https://github.com/Priyank0302" target="_blank" rel="noopener" class="project-link">View code</a>
       </article>
 
     </div>
   </div>
 </section>
 
-<!-- ================= EXPERIENCE — CREAM BLOCK ================== -->
-<div class="container">
-  <div class="block block--cream">
-    <section id="experience" class="section">
-      <div class="section-head">
-        <span class="eyebrow t-eyebrow">Experience</span>
-        <h2 class="t-display-lg">Where I've worked.</h2>
-      </div>
-      <div class="exp-list">
-
-        <article class="experience-card">
-          <div>
-            <h3 class="t-headline">Data Science Intern</h3>
-            <span class="caption t-caption">Certificate issued</span>
-          </div>
-          <div>
-            <div class="company t-body-lg">Pepcoding Pvt Ltd</div>
-            <p class="t-body-sm">Worked across data structures, algorithms, machine learning, and deep learning. Built predictive models on real datasets and implemented a range of ML algorithms from the ground up rather than calling them off the shelf.</p>
-          </div>
-        </article>
-
-        <article class="experience-card">
-          <div>
-            <h3 class="t-headline">Software Engineering Intern</h3>
-            <span class="caption t-caption">Certificate issued</span>
-          </div>
-          <div>
-            <div class="company t-body-lg">Shaligram Infotech, Ahmedabad</div>
-            <p class="t-body-sm">Frontend development on responsive client-facing applications using HTML, CSS, Bootstrap, JavaScript, and jQuery. The internship that taught me what happens to a model once it meets an interface.</p>
-          </div>
-        </article>
-
-      </div>
-    </section>
+<!-- ========================== MARQUEE ========================== -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="hot">Python</span><span>SQL</span><span class="hot">TensorFlow</span><span>Keras</span><span class="hot">Scikit-learn</span>
+    <span>Pandas</span><span>NumPy</span><span class="hot">Deep learning</span><span>NLP</span><span>Computer vision</span>
+    <span class="hot">GANs</span><span>Flask</span><span>MySQL</span><span>Git</span>
+    <span class="hot">Python</span><span>SQL</span><span class="hot">TensorFlow</span><span>Keras</span><span class="hot">Scikit-learn</span>
+    <span>Pandas</span><span>NumPy</span><span class="hot">Deep learning</span><span>NLP</span><span>Computer vision</span>
+    <span class="hot">GANs</span><span>Flask</span><span>MySQL</span><span>Git</span>
   </div>
 </div>
 
-<!-- ======================= ACHIEVEMENTS ======================== -->
-<section id="achievements" class="section">
+<!-- ====================== 04 — THE TOOLKIT ===================== -->
+<section id="toolkit" class="section">
   <div class="container">
+    <div class="sec-index t-caption"><span class="num">04</span> <span>The Toolkit</span> <span class="rule"></span></div>
     <div class="section-head">
-      <span class="eyebrow t-eyebrow">Milestones</span>
-      <h2 class="t-display-lg">A few numbers.</h2>
+      <span class="word-mark">build</span>
+      <h2 class="t-display-lg">What I reach for.</h2>
+      <p class="t-body">A computer engineering foundation applied to data science. Hover or tap a card to see how I actually use each group.</p>
     </div>
-    <div class="achievements-grid">
 
-      <div class="achievement-card">
-        <span class="t-caption">ML hackathon</span>
-        <div class="achievement-number t-display-lg">4th</div>
-        <h3 class="t-card-title">Place, competitive field</h3>
-        <p class="t-body-sm">Placed fourth in a machine learning hackathon judged on modelling approach and problem framing.</p>
-        <div class="platform-row"><span class="tech-badge">Certificate issued</span></div>
-      </div>
+    <div class="toolkit-grid">
 
-      <div class="achievement-card">
-        <span class="t-caption">Algorithms</span>
-        <div class="achievement-number t-display-lg">300+</div>
-        <h3 class="t-card-title">Problems solved</h3>
-        <p class="t-body-sm">Data structures and algorithms problems worked through across three platforms.</p>
-        <div class="platform-row">
-          <span class="tech-badge">LeetCode</span>
-          <span class="tech-badge">Nados</span>
-          <span class="tech-badge">GeeksforGeeks</span>
+      <div class="flip" tabindex="0">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <h3 class="t-card-title">Languages</h3>
+            <div class="chip-row">
+              <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">Java</span><span class="chip">JavaScript</span><span class="chip">HTML &amp; CSS</span>
+            </div>
+            <span class="flip-hint">↻ hover to flip</span>
+          </div>
+          <div class="flip-face flip-back">
+            <span class="t-caption">In practice</span>
+            <p>Python is my daily driver for modelling and pipelines; SQL for pulling and shaping data at source. Java and JavaScript come from the engineering side.</p>
+          </div>
         </div>
       </div>
 
-      <div class="achievement-card">
-        <span class="t-caption">Certifications</span>
-        <div class="achievement-number t-display-lg">3+</div>
-        <h3 class="t-card-title">Professional certificates</h3>
-        <p class="t-body-sm">Across data science, frontend development, and competitive programming.</p>
-        <div class="platform-row">
-          <span class="tech-badge">Pepcoding</span>
-          <span class="tech-badge">Shaligram</span>
+      <div class="flip" tabindex="0">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <h3 class="t-card-title">Frameworks &amp; libraries</h3>
+            <div class="chip-row">
+              <span class="chip">TensorFlow</span><span class="chip">Keras</span><span class="chip">Scikit-learn</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Flask</span>
+            </div>
+            <span class="flip-hint">↻ hover to flip</span>
+          </div>
+          <div class="flip-face flip-back">
+            <span class="t-caption">In practice</span>
+            <p>Scikit-learn for most tabular work; TensorFlow and Keras when a problem genuinely needs deep learning. Pandas and NumPy for everything in between, Flask to serve it.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip" tabindex="0">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <h3 class="t-card-title">Machine learning &amp; AI</h3>
+            <div class="chip-row">
+              <span class="chip">Deep learning</span><span class="chip">NLP</span><span class="chip">Computer vision</span><span class="chip">GANs</span><span class="chip">Feature engineering</span>
+            </div>
+            <span class="flip-hint">↻ hover to flip</span>
+          </div>
+          <div class="flip-face flip-back">
+            <span class="t-caption">In practice</span>
+            <p>Feature engineering makes or breaks tabular models; deep learning and GANs when the data is images. NLP for turning text into something a classifier can use.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip" tabindex="0">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <h3 class="t-card-title">Data &amp; automation</h3>
+            <div class="chip-row">
+              <span class="chip">Web scraping</span><span class="chip">Selenium</span><span class="chip">BeautifulSoup</span><span class="chip">MySQL</span><span class="chip">Matplotlib</span>
+            </div>
+            <span class="flip-hint">↻ hover to flip</span>
+          </div>
+          <div class="flip-face flip-back">
+            <span class="t-caption">In practice</span>
+            <p>Selenium and BeautifulSoup to collect data other people would rather not touch; MySQL to store it, Matplotlib to see what it's actually telling me.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip" tabindex="0">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <h3 class="t-card-title">Fundamentals</h3>
+            <div class="chip-row">
+              <span class="chip">Data structures</span><span class="chip">Algorithms</span><span class="chip">Problem solving</span>
+            </div>
+            <span class="flip-hint">↻ hover to flip</span>
+          </div>
+          <div class="flip-face flip-back">
+            <span class="t-caption">In practice</span>
+            <p>300+ problems across LeetCode, Nados, and GeeksforGeeks. The fundamentals that keep code fast and correct when the dataset stops being small.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip" tabindex="0">
+        <div class="flip-inner">
+          <div class="flip-face flip-front">
+            <h3 class="t-card-title">Workflow &amp; UI</h3>
+            <div class="chip-row">
+              <span class="chip">Git</span><span class="chip">Bootstrap</span><span class="chip">jQuery</span><span class="chip">Version control</span>
+            </div>
+            <span class="flip-hint">↻ hover to flip</span>
+          </div>
+          <div class="flip-face flip-back">
+            <span class="t-caption">In practice</span>
+            <p>Git for version control on every project. The frontend stack is what lets me put a model behind an interface someone can actually use.</p>
+          </div>
         </div>
       </div>
 
@@ -1100,55 +887,144 @@ ul { list-style: none; }
   </div>
 </section>
 
-<!-- =================== CONTACT — LIME BLOCK ==================== -->
-<div class="container">
-  <div class="block block--lime">
-    <section id="contact" class="section">
-      <div class="contact-grid">
-        <div>
-          <span class="eyebrow t-eyebrow">Contact</span>
-          <h2 class="t-display-lg">Let's talk.</h2>
-          <p class="contact-lede t-body-lg">Open to graduate data science roles in the UK, collaborations, and conversations about anything in this space.</p>
-          <a href="Priyank%20resume.pdf" target="_blank" rel="noopener" class="btn btn-secondary">Download résumé</a>
+<!-- ========================= 05 — WHY ME ======================= -->
+<section id="why" class="section">
+  <div class="container">
+    <div class="sec-index t-caption"><span class="num">05</span> <span>Why Me</span> <span class="rule"></span></div>
+    <div class="section-head">
+      <span class="word-mark">edge</span>
+      <h2 class="t-display-lg">What you get when<br>you hire me.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item">
+        <span class="why-num">01</span>
+        <h3 class="t-card-title">End-to-end ownership</h3>
+        <p class="t-body-sm">I take a problem from raw data to a working model — cleaning, feature engineering, training, and evaluation — not a notebook I hand off and hope for.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">02</span>
+        <h3 class="t-card-title">Strong fundamentals</h3>
+        <p class="t-body-sm">300+ data structures and algorithms problems. When the dataset stops being small, correct and efficient code stops being optional.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">03</span>
+        <h3 class="t-card-title">Data meets the user</h3>
+        <p class="t-body-sm">A frontend internship gave me something uncommon among data people — a working sense of what happens once a model has to face a real interface.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">04</span>
+        <h3 class="t-card-title">Depth in deep learning</h3>
+        <p class="t-body-sm">Trained a GAN from a custom architecture and built neural models by hand. I go past calling a library and into how the thing actually learns.</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">05</span>
+        <h3 class="t-card-title">Always going deeper</h3>
+        <p class="t-body-sm">MSc in progress, a placed hackathon finish, and a steady stream of projects. I learn fast and I don't stop at "it works."</p>
+      </div>
+      <div class="why-item">
+        <span class="why-num">06</span>
+        <h3 class="t-card-title">Honest about the work</h3>
+        <p class="t-body-sm">Real metrics, clear write-ups, and no pretending a messy result is clean. I'd rather report what actually happened than a flattering number.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================== 06 — CREDENTIALS ===================== -->
+<section id="credentials" class="creds">
+  <div class="container section">
+    <div class="sec-index t-caption"><span class="num">06</span> <span>Credentials</span> <span class="rule"></span></div>
+    <div class="creds-grid">
+      <div class="creds-col">
+        <h4 class="t-eyebrow">Education</h4>
+        <div class="cred-row">
+          <h5>MSc Data Science</h5>
+          <div class="meta">Coventry University · Jan 2026 – Present</div>
         </div>
-        <div>
-          <div class="contact-list">
-            <a class="contact-row" href="mailto:sendtopriyank0302@gmail.com">
-              <span class="t-caption">Email</span>
-              <span class="value t-body">sendtopriyank0302@gmail.com</span>
-            </a>
-            <a class="contact-row" href="https://www.linkedin.com/in/priyankkumar-solanki-67b511230/" target="_blank" rel="noopener">
-              <span class="t-caption">LinkedIn</span>
-              <span class="value t-body">priyankkumar-solanki</span>
-            </a>
-            <a class="contact-row" href="https://github.com/Priyank0302" target="_blank" rel="noopener">
-              <span class="t-caption">GitHub</span>
-              <span class="value t-body">Priyank0302</span>
-            </a>
-            <a class="contact-row" href="tel:+919328005522">
-              <span class="t-caption">Phone</span>
-              <span class="value t-body">+91 93280 05522</span>
-            </a>
-          </div>
+        <div class="cred-row">
+          <h5>BE, Computer Engineering</h5>
+          <div class="meta">Gujarat Technological University · 7.57 CGPA · 2019–2023</div>
+        </div>
+        <div class="cred-row">
+          <h5>Higher Secondary — Science</h5>
+          <div class="meta">Surat, Gujarat · 73%</div>
+        </div>
+        <div class="cred-row">
+          <h5>Secondary (10th)</h5>
+          <div class="meta">Surat, Gujarat · 70%</div>
         </div>
       </div>
-    </section>
+      <div class="creds-col">
+        <h4 class="t-eyebrow">Certifications &amp; recognition</h4>
+        <div class="cred-row">
+          <h5>4th place — ML Hackathon</h5>
+          <div class="meta">Judged on modelling approach &amp; problem framing · Certificate issued</div>
+        </div>
+        <div class="cred-row">
+          <h5>Data Science Internship</h5>
+          <div class="meta">Pepcoding Pvt Ltd · Certificate issued</div>
+        </div>
+        <div class="cred-row">
+          <h5>Software Engineering Internship</h5>
+          <div class="meta">Shaligram Infotech · Certificate issued</div>
+        </div>
+        <div class="cred-row">
+          <h5>300+ DSA problems</h5>
+          <div class="meta">LeetCode · Nados · GeeksforGeeks</div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
+
+<!-- ========================== CONTACT ========================== -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="sec-index t-caption"><span class="num">07</span> <span>Contact</span> <span class="rule"></span></div>
+    <div class="contact-grid">
+      <div>
+        <span class="word-mark">say hi</span>
+        <h2 class="t-display-lg">Let's talk.</h2>
+        <p class="contact-lede t-body-lg">Open to graduate data science roles in the UK, collaborations, and conversations about anything in this space.</p>
+        <a href="Priyank%20resume.pdf" target="_blank" rel="noopener" class="btn btn-accent">Download résumé</a>
+      </div>
+      <div>
+        <div class="contact-list">
+          <a class="contact-row" href="mailto:sendtopriyank0302@gmail.com">
+            <span class="k t-caption">Email</span>
+            <span class="value t-body">sendtopriyank0302@gmail.com</span>
+          </a>
+          <a class="contact-row" href="https://www.linkedin.com/in/priyankkumar-solanki-67b511230/" target="_blank" rel="noopener">
+            <span class="k t-caption">LinkedIn</span>
+            <span class="value t-body">priyankkumar-solanki</span>
+          </a>
+          <a class="contact-row" href="https://github.com/Priyank0302" target="_blank" rel="noopener">
+            <span class="k t-caption">GitHub</span>
+            <span class="value t-body">Priyank0302</span>
+          </a>
+          <a class="contact-row" href="tel:+919328005522">
+            <span class="k t-caption">Phone</span>
+            <span class="value t-body">+91 93280 05522</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ========================== FOOTER =========================== -->
 <footer class="footer">
   <div class="container">
     <div class="footer-top">
-      <div class="wordmark">Priyank<br>Solanki</div>
+      <div class="wordmark">Priyankkumar<br><span class="accent">Solanki</span></div>
       <div class="footer-col">
         <h4 class="t-caption">Pages</h4>
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#experience">Experience</a></li>
+          <li><a href="#intro">About</a></li>
+          <li><a href="#journey">Journey</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#toolkit">Toolkit</a></li>
+          <li><a href="#why">Why me</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
@@ -1158,12 +1034,12 @@ ul { list-style: none; }
           <li><a href="https://www.linkedin.com/in/priyankkumar-solanki-67b511230/" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://github.com/Priyank0302" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="mailto:sendtopriyank0302@gmail.com">Email</a></li>
-          <li><a href="Priyank%20resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+          <li><a href="Priyank%20resume.pdf" target="_blank" rel="noopener">Resume</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="t-caption">© 2026 Priyank Solanki</span>
+      <span class="t-caption">© 2026 Priyankkumar Solanki</span>
       <span class="t-caption">Coventry, United Kingdom</span>
     </div>
   </div>
